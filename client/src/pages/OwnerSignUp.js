@@ -23,7 +23,7 @@ const initialFormState = {
   password: "",
 };
 
-export default function SignUp() {
+export default function OwnerSignUp() {
   const { isLoggedIn, signup, loading, error } = useAuth();
   const [formState, setFormState] = useState(initialFormState);
 

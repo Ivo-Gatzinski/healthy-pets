@@ -24,7 +24,7 @@ const initialFormState = {
   password: "",
 };
 
-export default function SignUp() {
+export default function VetSignUp() {
   const { isLoggedIn, signup, loading, error } = useAuth();
   const [formState, setFormState] = useState(initialFormState);
 

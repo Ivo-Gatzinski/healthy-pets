@@ -23,7 +23,7 @@ const initialFormState = {
   password: "",
 };
 
-export default function Login() {
+export default function VetLogin() {
   const { isLoggedIn, login, loading, error } = useAuth();
   const [formState, setFormState] = useState(initialFormState);
 

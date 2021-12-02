@@ -1,29 +1,61 @@
 const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
-  "Unix time stamp in milliseconds."
-  scalar Date
+type User {
+  _id: ID
+  username: String!
+  password: String!
+  pets: [Pet]
+  notes: [Note]
+  enum: {
+    owner
+    vet
+  }
+ }
+ 
+ type Pet {
+  _id: ID
+  firstName: String!
+  lastName: String!
+  breed: String!
+  species: String!
+ }
+
+ type Note {
+  _id: ID
+  text: String!
+  subject: String!
+  createdAt: Date
+}
+
+input noteInput {
+ text: String!
+ subject: String!
+ petId: ID!
+}
+
+input petInput {
+ firstName:
+ lastName:
+ breed:
+ species:
+}
+
+type Auth {
+  token: ID!
+  user: User
+}
+
 
   type Query {
-    "Find the logged in user."
     me: User
   }
 
   type Mutation {
-    createUser(email: String!, password: String!, username: String!): Auth
-    login(email: String!, password: String!): Auth
-  }
-
-  type Auth {
-    token: String!
-    user: User!
-  }
-
-  type User {
-    _id: ID!
-    username: String!
-    email: String!
-    lastLogin: Date!
+    addUser(username: String!, password: String!): Auth
+    login(username: String!, password: String!): Auth
+    addNote(note:[noteInput]): Pet
+    addPet(pet: [petInput]): User
   }
 `;
 

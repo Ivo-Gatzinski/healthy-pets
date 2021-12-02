@@ -1,6 +1,6 @@
 import { useAuth } from "../util/auth";
 
-export default function OwnerHome() {
+export default function OwnerNotes() {
   const { isLoggedIn, pets } = useAuth();
   return (
     <div>

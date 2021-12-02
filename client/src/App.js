@@ -2,7 +2,7 @@ import { ApolloProvider } from "@apollo/client";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import PrivateRoute from "./components/PrivateRoute";
-import Home from "./pages/Home";
+import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import ProtectedPageExample from "./pages/ProtectedPageExample";
 import SignUp from "./pages/SignUp";
@@ -17,7 +17,7 @@ function App() {
           <Navbar />
           <Switch>
             <Route exact path="/">
-              <Home />
+              <Landing />
             </Route>
             <Route path="/login">
               <Login />

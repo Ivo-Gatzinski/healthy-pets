@@ -25,8 +25,8 @@ const userSchema = new Schema({
 
   role: {
     type: String,
-    enum: ['owner', 'vet'],
-    default: 'owner'
+    enum: ['OWNER', 'VET'],
+    default: 'OWNER'
   },
 })
 

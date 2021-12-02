@@ -1,16 +1,18 @@
 const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
+enum Role {
+  OWNER
+  VET
+}
+
 type User {
   _id: ID
   username: String!
   password: String!
   pets: [Pet]
   notes: [Note]
-  enum: {
-    owner
-    vet
-  }
+  role: Role
  }
  
  type Pet {

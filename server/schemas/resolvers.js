@@ -19,7 +19,7 @@ const resolvers = {
     },
   },
   Mutation: {
-    createUser: async (parent, args) => {
+    addUser: async (parent, args) => {
       try {
         const user = await User.create({ ...args });
         const token = await signToken(user);
@@ -33,8 +33,8 @@ const resolvers = {
       }
     },
     login: async (parent, args) => {
-      const { email, password } = args;
-      const user = await User.findOne({ email });
+      const { username, password } = args;
+      const user = await User.findOne({ username });
       if (!user) {
         throw new AuthenticationError("Invalid username or password");
       }
@@ -47,6 +47,28 @@ const resolvers = {
       await user.save();
       return { token, user };
     },
+    addPet: async (parent, { pet }, context) => {
+      if (context.user) {
+          const updatedUser = await User.findOneAndUpdate(
+              { _id: context.user._id},
+              { $push: { pets: pet }},
+              { new: true, runValidators: true}
+          );
+          return updatedUser
+      }
+      throw new AuthenticationError("Please log in.");
+  },
+  addNote: async (parent, { note: {petId, ...newNote} }, context) => {
+    if (context.user?.role === "VET") {
+        const updatedPet = await Pet.findOneAndUpdate(
+            { _id: petId},
+            { $push: newNote },
+            { new: true, runValidators: true}
+        );
+        return updatedUser
+    }
+    throw new AuthenticationError("Please log in.");
+},
   },
 };
 

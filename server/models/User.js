@@ -8,22 +8,28 @@ const userSchema = new Schema({
     unique: true,
     trim: true,
   },
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-    match: [/.+@.+\..+/, "Must match an email address!"],
-  },
+
   password: {
     type: String,
     required: true,
-    minlength: 5,
+    minlength: 12,
   },
-  lastLogin: {
-    type: Date,
-    default: Date.now,
+
+  pets: [
+    {
+      type:
+      Schema.Types.ObjectId,
+      ref: 'Pet',
+    },
+  ],
+
+  role: {
+    type: String,
+    enum: ['owner', 'vet'],
+    default: 'owner'
   },
-});
+})
+
 
 userSchema.pre("save", async function (next) {
   if (this.isNew || this.isModified("password")) {

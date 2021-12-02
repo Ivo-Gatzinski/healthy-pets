@@ -19,17 +19,17 @@ const styles = {
 };
 
 const initialFormState = {
-  email: "",
+  username: "",
   password: "",
 };
 
-export default function Login() {
-  const { isLoggedIn, login, loading, error } = useAuth();
+export default function SignUp() {
+  const { isLoggedIn, signup, loading, error } = useAuth();
   const [formState, setFormState] = useState(initialFormState);
 
   useEffect(() => {
     if (error) {
-      // TODO: replace window alert with custom alert
+      // TODO: replace window alert with custom alert.
       alert(error);
     }
   }, [error]);
@@ -41,7 +41,7 @@ export default function Login() {
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
-    login(formState);
+    signup(formState);
   };
 
   if (isLoggedIn) {
@@ -50,10 +50,12 @@ export default function Login() {
   }
   return (
     <div>
-      <h1>Login</h1>
+      <div> HOME ICON placeholder</div>
+      <h1> Sign Up</h1>
       <hr />
+      <div> Pet Icon </div>
       <form onSubmit={handleSubmit}>
-      <div style={styles.formControl}>
+        <div style={styles.formControl}>
           <label htmlFor="username" style={styles.label}>
             Username
           </label>
@@ -88,8 +90,7 @@ export default function Login() {
           </button>
         </div>
         <div>
-          <p>Don't have an account yet? <button > Sign Up </button></p>
-          
+          <p>Have an account already? <button > Log In </button></p>
         </div>
       </form>
     </div>

@@ -51,8 +51,10 @@ export default function SignUp() {
   }
   return (
     <div>
+      <div> HOME ICON placeholder</div>
       <h1>Sign Up</h1>
       <hr />
+      <div> Vet ICON</div>
       <form onSubmit={handleSubmit}>
         <div style={styles.formControl}>
           <label htmlFor="username" style={styles.label}>
@@ -87,6 +89,9 @@ export default function SignUp() {
           <button disabled={loading} type="submit">
             {loading ? "Loading..." : "Submit"}
           </button>
+          <div>
+          <p>Have an account already? <button > Log In </button></p>
+        </div>
         </div>
       </form>
     </div>

@@ -50,8 +50,10 @@ export default function Login() {
   }
   return (
     <div>
+      <div> Home ICON placeholder</div>
       <h1>Login</h1>
       <hr />
+      <div> Vet ICON </div>
       <form onSubmit={handleSubmit}>
       <div style={styles.formControl}>
           <label htmlFor="username" style={styles.label}>

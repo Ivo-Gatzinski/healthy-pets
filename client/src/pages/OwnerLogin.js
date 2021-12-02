@@ -19,18 +19,17 @@ const styles = {
 };
 
 const initialFormState = {
-  username: "",
   email: "",
   password: "",
 };
 
-export default function SignUp() {
-  const { isLoggedIn, signup, loading, error } = useAuth();
+export default function OwnerLogin() {
+  const { isLoggedIn, login, loading, error } = useAuth();
   const [formState, setFormState] = useState(initialFormState);
 
   useEffect(() => {
     if (error) {
-      // TODO: replace window alert with custom alert.
+      // TODO: replace window alert with custom alert
       alert(error);
     }
   }, [error]);
@@ -42,7 +41,7 @@ export default function SignUp() {
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
-    signup(formState);
+    login(formState);
   };
 
   if (isLoggedIn) {
@@ -51,10 +50,12 @@ export default function SignUp() {
   }
   return (
     <div>
-      <h1>Sign Up</h1>
+      <div> Home ICON placeholder</div>
+      <h1>Login</h1>
       <hr />
+      <div> Pet Icon </div>
       <form onSubmit={handleSubmit}>
-        <div style={styles.formControl}>
+      <div style={styles.formControl}>
           <label htmlFor="username" style={styles.label}>
             Username
           </label>
@@ -66,20 +67,6 @@ export default function SignUp() {
             placeholder="Enter username"
             name="username"
             value={formState.username.value}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div style={styles.formControl}>
-          <label htmlFor="email" style={styles.label}>
-            Email
-          </label>
-          <input
-            disabled={loading}
-            id="email"
-            type="email"
-            name="email"
-            placeholder="Enter email"
-            value={formState.email.value}
             onChange={handleInputChange}
           />
         </div>
@@ -101,6 +88,10 @@ export default function SignUp() {
           <button disabled={loading} type="submit">
             {loading ? "Loading..." : "Submit"}
           </button>
+        </div>
+        <div>
+          <p>Don't have an account yet? <button > Sign Up </button></p>
+          
         </div>
       </form>
     </div>

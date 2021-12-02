@@ -23,7 +23,7 @@ const initialFormState = {
   password: "",
 };
 
-export default function Login() {
+export default function VetLogin() {
   const { isLoggedIn, login, loading, error } = useAuth();
   const [formState, setFormState] = useState(initialFormState);
 
@@ -50,20 +50,23 @@ export default function Login() {
   }
   return (
     <div>
+      <div> Home ICON placeholder</div>
       <h1>Login</h1>
       <hr />
+      <div> Vet ICON </div>
       <form onSubmit={handleSubmit}>
-        <div style={styles.formControl}>
-          <label htmlFor="email" style={styles.label}>
-            Email
+      <div style={styles.formControl}>
+          <label htmlFor="username" style={styles.label}>
+            Username
           </label>
           <input
+            autoFocus
             disabled={loading}
-            id="email"
-            type="email"
-            name="email"
-            placeholder="Enter email"
-            value={formState.email.value}
+            id="username"
+            type="text"
+            placeholder="Enter username"
+            name="username"
+            value={formState.username.value}
             onChange={handleInputChange}
           />
         </div>
@@ -85,6 +88,10 @@ export default function Login() {
           <button disabled={loading} type="submit">
             {loading ? "Loading..." : "Submit"}
           </button>
+        </div>
+        <div>
+          <p>Don't have an account yet? <button > Sign Up </button></p>
+          
         </div>
       </form>
     </div>

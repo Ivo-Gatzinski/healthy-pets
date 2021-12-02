@@ -70,20 +70,6 @@ export default function SignUp() {
           />
         </div>
         <div style={styles.formControl}>
-          <label htmlFor="email" style={styles.label}>
-            Email
-          </label>
-          <input
-            disabled={loading}
-            id="email"
-            type="email"
-            name="email"
-            placeholder="Enter email"
-            value={formState.email.value}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div style={styles.formControl}>
           <label htmlFor="new-password" style={styles.label}>
             Password
           </label>

@@ -87,10 +87,6 @@ export default function Login() {
             {loading ? "Loading..." : "Submit"}
           </button>
         </div>
-        <div>
-          <p>Don't have an account yet? <button > Sign Up </button></p>
-          
-        </div>
       </form>
     </div>
   );

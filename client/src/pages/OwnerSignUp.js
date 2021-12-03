@@ -30,7 +30,6 @@ export default function OwnerSignUp() {
 
   useEffect(() => {
     if (error) {
-      // TODO: replace window alert with custom alert.
       alert(error);
     }
   }, [error]);

@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import { useAuth } from "../util/auth";
-import { Link } from "react-router-dom";
+import LogoHome from "../components/LogoHome";
+
 
 // This signup form is intentionally minimalist to reduce effort required to
 // customize it to your app's needs. See the excellent best practices guide for
@@ -47,11 +48,11 @@ export default function VetLogin() {
 
   if (isLoggedIn) {
     // redirect to home if user is logged in
-    return <Redirect to="/" />;
+    return <Redirect to="/vetpets" />;
   }
   return (
     <div>
-      <div> Home ICON placeholder</div>
+      <LogoHome/>
       <h1>Login</h1>
       <hr />
       <div> Vet ICON </div>

@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
-import { Redirect } from "react-router-dom";
-import { useAuth } from "../util/auth";
+import React from 'react';
+//import { useEffect, useState } from "react";
+//import { Link } from "react-router-dom";
+//import { useAuth } from "../util/auth";
 
 export default function AddNotes() {
+
   return (
     <div>
       <div>
@@ -49,3 +51,7 @@ export default function AddNotes() {
     </div>
   );
 }
+
+//another example to get code from: 
+
+

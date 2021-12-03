@@ -34,7 +34,7 @@ function App() {
             <PrivateRoute path="/notes">
               <VetNotes />
             </PrivateRoute>
-            <Route path="/signup">
+            <Route path="/vetsignup">
               <VetSignUp />
             </Route>
             <Route path="/ownerlogin">
@@ -46,7 +46,7 @@ function App() {
             <PrivateRoute path="/mypets">
               <OwnerHome />
             </PrivateRoute>
-            <Route path="/signup">
+            <Route path="/ownersignup">
               <OwnerSignUp />
             </Route>
             <PrivateRoute path="/addnote">

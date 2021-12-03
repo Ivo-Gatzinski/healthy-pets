@@ -10,8 +10,8 @@ const signToken = (user) => {
   // TODO: customize the data encoded within the token
   const data = {
     _id: user._id,
-    email: user.email,
     username: user.username,
+    role: user.role
   };
   return jwt.sign({ data }, SECRET, {
     expiresIn: TOKEN_EXP,

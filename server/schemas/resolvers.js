@@ -15,7 +15,7 @@ const resolvers = {
       if (!ctx.user) {
         throw new AuthenticationError("Must be logged in.");
       }
-      return User.findOne({ email: ctx.user.email });
+      return User.findOne({ username: ctx.user.username }).populate("pets").populate("notes");
     },
   },
   Mutation: {

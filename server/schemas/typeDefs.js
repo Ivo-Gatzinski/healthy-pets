@@ -13,7 +13,6 @@ type User {
   _id: ID
   username: String!
   pets: [Pet]
-  notes: [Note]
   role: Role
  }
  
@@ -23,6 +22,7 @@ type User {
   lastName: String!
   breed: String!
   species: String!
+  notes: [Note]
  }
 
  type Note {

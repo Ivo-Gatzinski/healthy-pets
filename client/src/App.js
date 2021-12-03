@@ -21,7 +21,6 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <AuthProvider>
-       
           <Switch>
             <Route exact path="/">
               <Landing />
@@ -29,33 +28,33 @@ function App() {
             <Route path="/vetlogin">
               <VetLogin />
             </Route>
-            <Route path="/vetpets">
+            <PrivateRoute path="/vetpets">
               <VetPets />
-            </Route>
-            <Route path="/notes">
+            </PrivateRoute>
+            <PrivateRoute path="/notes">
               <VetNotes />
-            </Route>
+            </PrivateRoute>
             <Route path="/signup">
               <VetSignUp />
             </Route>
             <Route path="/ownerlogin">
               <OwnerLogin />
             </Route>
-            <Route path="/notes">
+            <PrivateRoute path="/notes">
               <OwnerNotes />
-            </Route>
-            <Route path="/mypets">
+            </PrivateRoute>
+            <PrivateRoute path="/mypets">
               <OwnerHome />
-            </Route>
+            </PrivateRoute>
             <Route path="/signup">
               <OwnerSignUp />
             </Route>
-            <Route path="/addnote">
+            <PrivateRoute path="/addnote">
               <AddNotes />
-            </Route>
-            <Route path="/addpet">
+            </PrivateRoute>
+            <PrivateRoute path="/addpet">
               <AddPets />
-            </Route>
+            </PrivateRoute>
             {/* Use PrivateRoute for pages that should only be accessible to a
             user that has logged in.*/}
             <PrivateRoute path="/protected">

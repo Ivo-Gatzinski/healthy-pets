@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Redirect, Link } from "react-router-dom";
+import LogoHome from "../components/LogoHome";
 import { useAuth } from "../util/auth";
 
 
@@ -51,7 +52,7 @@ export default function OwnerLogin() {
   }
   return (
     <div>
-      <div> Home ICON placeholder</div>
+      <LogoHome/>
       <h1>Login</h1>
       <div> Pet Icon </div>
       <form onSubmit={handleSubmit}>

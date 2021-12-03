@@ -1,28 +1,43 @@
 import React from 'react';
-//import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 //import { Link } from "react-router-dom";
 //import { useAuth } from "../util/auth";
 
-export default function AddNotes() {
+const initialFormState = {
+  subject: "",
+  comments: "",
+};
 
+export default function AddNotes() {
+  //const { isLoggedIn, login, loading, error } = useAuth();
+  const [formState, setFormState] = useState(initialFormState);
+  const handleInputChange = (evt) => {
+    const { name, value } = evt.target;
+    setFormState((prevState) => ({ ...prevState, [name]: value }));
+  };
+
+  const handleSubmit = async (evt) => {
+    evt.preventDefault();
+  
+  };
+  console.log(formState);
   return (
     <div>
       <div>
         <h2>Pet Name: "Display the selected pet's name"</h2>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div>
             <label>
             Subject
             </label>
             <input
               autoFocus
-              // disabled={loading}
-              id="username"
+              id="subject"
               type="text"
-              placeholder="Enter username"
-              name="username"
-              value="input a pet's name"
-              // onChange={handleInputChange}
+              placeholder="Enter Subject.."
+              name="subject"
+              value={formState.subject}
+              onChange={handleInputChange}
             />
           </div>
           <div>
@@ -31,27 +46,27 @@ export default function AddNotes() {
             </label>
             <input
               autoFocus
-              // disabled={loading}
-              id="username"
+              id="comments"
               type="text"
-              placeholder="Enter username"
-              name="username"
-              value="input a pet's name"
-              // onChange={handleInputChange}
+              placeholder="Enter Comments"
+              name="comments"
+              value={formState.comments}
+              onChange={handleInputChange}
             />
           </div>
         </form>
         <div>
+        <div >
           <button type="submit">
-            {/* {loading ? "Loading..." : "Submit"} */}
-            Add Note
+           Submit
           </button>
+        </div>
         </div>
       </div>
     </div>
   );
 }
 
-//another example to get code from: 
+
 
 

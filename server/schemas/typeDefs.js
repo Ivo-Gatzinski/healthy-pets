@@ -1,6 +1,9 @@
 const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
+"Unix time stamp in milliseconds."
+  scalar Date
+
 enum Role {
   OWNER
   VET
@@ -9,7 +12,6 @@ enum Role {
 type User {
   _id: ID
   username: String!
-  password: String!
   pets: [Pet]
   notes: [Note]
   role: Role
@@ -37,10 +39,10 @@ input noteInput {
 }
 
 input petInput {
- firstName:
- lastName:
- breed:
- species:
+ firstName: String!
+ lastName: String!
+ breed: String!
+ species: String!
 }
 
 type Auth {

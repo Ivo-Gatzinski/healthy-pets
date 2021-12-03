@@ -27,4 +27,4 @@ const noteSchema = new Schema ({
     },
 });
 
-module.exports = Note;
+module.exports = noteSchema;

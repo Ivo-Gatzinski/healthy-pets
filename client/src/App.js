@@ -26,7 +26,7 @@ function App() {
             <Route exact path="/">
               <Landing />
             </Route>
-            <Route path="/login">
+            <Route path="/vetlogin">
               <VetLogin />
             </Route>
             <Route path="/vetpets">
@@ -38,7 +38,7 @@ function App() {
             <Route path="/signup">
               <VetSignUp />
             </Route>
-            <Route path="/login">
+            <Route path="/ownerlogin">
               <OwnerLogin />
             </Route>
             <Route path="/notes">

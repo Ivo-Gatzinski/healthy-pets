@@ -22,7 +22,7 @@ export default function ProtectedPageExample() {
       </p>
       <hr />
       <p>Your id is {user._id}</p>
-      <p>Your email is {user.email}</p>
+      <p>Your role is {user.role}</p>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo cumque
         explicabo ipsum, facilis repellendus omnis amet in accusantium quisquam

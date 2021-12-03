@@ -15,14 +15,17 @@ const resolvers = {
       if (!ctx.user) {
         throw new AuthenticationError("Must be logged in.");
       }
-      return User.findOne({ username: ctx.user.username }).populate("pets").populate("notes");
+      return User.findOne({ username: ctx.user.username })
+        .populate("pets")
+        .populate("notes");
     },
   },
   Mutation: {
-    addUser: async (parent, args) => {
+    addUser: async (parent, {user: userData}) => {
       try {
-        const user = await User.create({ ...args });
+        const user = await User.create(userData);
         const token = await signToken(user);
+        console.log(user, token);
         return { user, token };
       } catch (error) {
         if (error.name === "MongoError" && error.code === 11000) {
@@ -49,26 +52,26 @@ const resolvers = {
     },
     addPet: async (parent, { pet }, context) => {
       if (context.user) {
-          const updatedUser = await User.findOneAndUpdate(
-              { _id: context.user._id},
-              { $push: { pets: pet }},
-              { new: true, runValidators: true}
-          );
-          return updatedUser
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $push: { pets: pet } },
+          { new: true, runValidators: true }
+        );
+        return updatedUser;
       }
       throw new AuthenticationError("Please log in.");
-  },
-  addNote: async (parent, { note: {petId, ...newNote} }, context) => {
-    if (context.user?.role === "VET") {
+    },
+    addNote: async (parent, { note: { petId, ...newNote } }, context) => {
+      if (context.user?.role === "VET") {
         const updatedPet = await Pet.findOneAndUpdate(
-            { _id: petId},
-            { $push: newNote },
-            { new: true, runValidators: true}
+          { _id: petId },
+          { $push: newNote },
+          { new: true, runValidators: true }
         );
-        return updatedUser
-    }
-    throw new AuthenticationError("Please log in.");
-},
+        return updatedUser;
+      }
+      throw new AuthenticationError("Please log in.");
+    },
   },
 };
 

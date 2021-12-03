@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Redirect } from "react-router-dom";
 import { useAuth } from "../util/auth";
+import { Link } from "react-router-dom";
 
 // This signup form is intentionally minimalist to reduce effort required to
 // customize it to your app's needs. See the excellent best practices guide for
@@ -20,7 +21,6 @@ const styles = {
 
 const initialFormState = {
   username: "",
-  email: "",
   password: "",
 };
 
@@ -90,7 +90,7 @@ export default function VetSignUp() {
             {loading ? "Loading..." : "Submit"}
           </button>
           <div>
-          <p>Have an account already? <button > Log In </button></p>
+          <p>Have an account already? <Link to="/vetlogin"> Log In  </Link> </p>
         </div>
         </div>
       </form>

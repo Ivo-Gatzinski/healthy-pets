@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import { useAuth } from "../util/auth";
+
 
 // This signup form is intentionally minimalist to reduce effort required to
 // customize it to your app's needs. See the excellent best practices guide for
@@ -19,7 +20,7 @@ const styles = {
 };
 
 const initialFormState = {
-  email: "",
+  username: "",
   password: "",
 };
 
@@ -46,13 +47,12 @@ export default function OwnerLogin() {
 
   if (isLoggedIn) {
     // redirect to home if user is logged in
-    return <Redirect to="/" />;
+    return <Redirect to="/mypets" />;
   }
   return (
     <div>
       <div> Home ICON placeholder</div>
       <h1>Login</h1>
-      <hr />
       <div> Pet Icon </div>
       <form onSubmit={handleSubmit}>
       <div style={styles.formControl}>
@@ -90,7 +90,7 @@ export default function OwnerLogin() {
           </button>
         </div>
         <div>
-          <p>Don't have an account yet? <button > Sign Up </button></p>
+          <p>Don't have an account yet? <Link to="ownersignup"> Sign Up </Link></p>
           
         </div>
       </form>

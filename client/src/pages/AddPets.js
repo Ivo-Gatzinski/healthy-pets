@@ -1,5 +1,6 @@
-// import { useAuth } from "../util/auth";
-// import { useState } from "react";
+import { useAuth } from "../util/auth";
+import { useState } from "react";
+import LogoPetsLogout from "../components/LogoPetsLogout";
 
 const styles = {
     formControl: {
@@ -12,44 +13,45 @@ const styles = {
     },
   };
 
-//   const initialFormState = {
-//     first: "",
-//     last:"",
-//     species:"",
-//     breed: "",
-//   };
-
-//   const handleInputChange = (evt) => {
-//     const { name, value } = evt.target;
-//     setFormState((prevState) => ({ ...prevState, [name]: value }));
-//   };
-
-//   const handleSubmit = async (evt) => {
-//     evt.preventDefault();
-//     addPets(formState);
-//   };
+  const initialFormState = {
+    first: "",
+    last:"",
+    species:"",
+    breed: "",
+  };
 
 export default function AddPets() {
-//   const { isLoggedIn, addPets, loading, error } = useAuth();
-//   const [formState, setFormState] = useState(initialFormState);
+
+  //   const { isLoggedIn, addPets, loading, error } = useAuth();
+  const [formState, setFormState] = useState(initialFormState);
+
+  const handleInputChange = (evt) => {
+    const { name, value } = evt.target;
+    setFormState((prevState) => ({ ...prevState, [name]: value }));
+  };
+
+  const handleSubmit = async (evt) => {
+    evt.preventDefault();
+    // addPets(formState);
+  };
+
   return (
     <div>
+      <LogoPetsLogout/>
       <h1>Add a new pet:</h1>
-      <hr />
-      <form>
+      <form onSubmit={handleSubmit}>
         <div style={styles.formControl}>
           <label htmlFor="petname" style={styles.label}>
             Pet Name
           </label>
           <input
             autoFocus
-            // disabled={loading}
             id="petname"
             type="text"
             placeholder="Enter your pet's name"
             name="petname"
-            value="Your pet's name"
-            // onChange={handleInputChange}
+            value={formState.first.value}
+            onChange={handleInputChange}
           />
         </div>
         <div style={styles.formControl}>
@@ -63,8 +65,8 @@ export default function AddPets() {
             type="text"
             placeholder="Enter your last name"
             name="ownerlastname"
-            value="Your last name"
-            // onChange={handleInputChange}
+            value={formState.last.value}
+            onChange={handleInputChange}
           />
         </div>
         <div style={styles.formControl}>
@@ -78,8 +80,8 @@ export default function AddPets() {
             type="text"
             placeholder="Enter your pet's species"
             name="species"
-            value="Your pet's species"
-            // onChange={handleInputChange}
+            value={formState.species.value}
+            onChange={handleInputChange}
           />
         </div>
         <div style={styles.formControl}>
@@ -93,13 +95,12 @@ export default function AddPets() {
             type="text"
             placeholder="Enter your pet's breed"
             name="petname"
-            value="Your pet's breed"
-            // onChange={handleInputChange}
+            value={formState.breed.value}
+            onChange={handleInputChange}
           />
         </div>
         <div style={styles.formControl}>
           <button type="submit">
-            {/* {loading ? "Loading..." : "Submit"} */}
             Submit
           </button>
         </div>

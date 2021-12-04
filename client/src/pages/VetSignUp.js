@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Redirect } from "react-router-dom";
 import { useAuth } from "../util/auth";
+import { Link } from "react-router-dom";
 
 // This signup form is intentionally minimalist to reduce effort required to
 // customize it to your app's needs. See the excellent best practices guide for
@@ -18,15 +19,14 @@ const styles = {
   },
 };
 
-const initialFormState = {
-  username: "",
-  email: "",
-  password: "",
-};
+//const initialFormState = {
+//  username: "",
+//  password: "",
+//};
 
 export default function VetSignUp() {
   const { isLoggedIn, signup, loading, error } = useAuth();
-  const [formState, setFormState] = useState(initialFormState);
+
 
   useEffect(() => {
     if (error) {
@@ -35,19 +35,19 @@ export default function VetSignUp() {
     }
   }, [error]);
 
-  const handleInputChange = (evt) => {
-    const { name, value } = evt.target;
-    setFormState((prevState) => ({ ...prevState, [name]: value }));
-  };
+  //const handleInputChange = (evt) => {
+    //const { name, value } = evt.target;
+   // setFormState((prevState) => ({ ...prevState, [name]: value }));
+  //};
 
-  const handleSubmit = async (evt) => {
-    evt.preventDefault();
-    signup(formState);
-  };
+  //const handleSubmit = async (evt) => {
+  //  evt.preventDefault();
+    //signup(formState);
+  //};
 
   if (isLoggedIn) {
     // redirect to home if user is logged in
-    return <Redirect to="/" />;
+    return <Redirect to="/vetpets" />;
   }
   return (
     <div>
@@ -55,7 +55,7 @@ export default function VetSignUp() {
       <h1>Sign Up</h1>
       <hr />
       <div> Vet ICON</div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit="test">
         <div style={styles.formControl}>
           <label htmlFor="username" style={styles.label}>
             Username
@@ -67,8 +67,8 @@ export default function VetSignUp() {
             type="text"
             placeholder="Enter username"
             name="username"
-            value={formState.username.value}
-            onChange={handleInputChange}
+           // value={formState.username.value}
+            //onChange={handleInputChange}
           />
         </div>
         <div style={styles.formControl}>
@@ -81,8 +81,8 @@ export default function VetSignUp() {
             type="password"
             name="password"
             placeholder="Enter password"
-            value={formState.password.value}
-            onChange={handleInputChange}
+            //value={formState.password.value}
+           // onChange={handleInputChange}
           />
         </div>
         <div style={styles.formControl}>
@@ -90,7 +90,7 @@ export default function VetSignUp() {
             {loading ? "Loading..." : "Submit"}
           </button>
           <div>
-          <p>Have an account already? <button > Log In </button></p>
+          <p>Have an account already? <Link to="/vetlogin"> Log In  </Link> </p>
         </div>
         </div>
       </form>

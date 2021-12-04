@@ -32,6 +32,12 @@ type User {
   createdAt: Date
 }
 
+input userInput {
+  username: String!
+  password: String!
+  role: Role
+}
+
 input noteInput {
  text: String!
  subject: String!
@@ -56,10 +62,10 @@ type Auth {
   }
 
   type Mutation {
-    addUser(username: String!, password: String!): Auth
+    addUser(user: userInput): Auth
     login(username: String!, password: String!): Auth
-    addNote(note:[noteInput]): Pet
-    addPet(pet: [petInput]): User
+    addNote(note: noteInput): Pet
+    addPet(pet: petInput): User
   }
 `;
 

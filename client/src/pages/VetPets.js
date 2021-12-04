@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link} from "react-router-dom";
 import { useAuth } from "../util/auth";
+import LogoLogout from "../components/LogoLogout";
 
 export default function VetPets() {
   const pets = [
@@ -12,6 +13,7 @@ export default function VetPets() {
 
   return (
     <div>
+      <LogoLogout/>
       <div>
         <h2>Search for pet name: </h2>
         <form>
@@ -36,7 +38,7 @@ export default function VetPets() {
             .filter((pet) =>
               pet.name.toLowerCase().includes(petName.toLowerCase())
             )
-            .map((pet) => <div>{pet.name}</div>)
+            .map((pet) => <div key={pet._id}><Link to={`/vetnotes/${pet._id}`}>{pet.name}</Link></div>)
         ) : (
           <p>No pets.</p>
         )}

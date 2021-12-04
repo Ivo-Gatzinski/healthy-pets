@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Redirect } from "react-router-dom";
 import { useAuth } from "../util/auth";
 import { Link } from "react-router-dom";
+import LogoHome from "../components/LogoHome";
 
 // This signup form is intentionally minimalist to reduce effort required to
 // customize it to your app's needs. See the excellent best practices guide for
@@ -51,7 +52,7 @@ export default function VetSignUp() {
   }
   return (
     <div>
-      <div> HOME ICON placeholder</div>
+     <LogoHome/>
       <h1>Sign Up</h1>
       <hr />
       <div> Vet ICON</div>
@@ -82,7 +83,7 @@ export default function VetSignUp() {
             name="password"
             placeholder="Enter password"
             //value={formState.password.value}
-           // onChange={handleInputChange}
+            //onChange={handleInputChange}
           />
         </div>
         <div style={styles.formControl}>

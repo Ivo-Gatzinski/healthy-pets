@@ -15,3 +15,11 @@ export const LOGIN = gql`
     }
   }
 `;
+
+export const ADD_NOTE = gql`
+mutation AddNote($note: noteInput) {
+  addNote(input: $note) {
+    token
+  }
+}
+`;

@@ -15,13 +15,14 @@ const resolvers = {
       if (!ctx.user) {
         throw new AuthenticationError("Must be logged in.");
       }
-      return User.findOne({ username: ctx.user.username })
-        .populate("pets")
-        .populate("notes");
+      return User.findOne({ username: ctx.user.username }).populate({
+        path: "pets",
+        populate: { path: "notes" },
+      });
     },
   },
   Mutation: {
-    addUser: async (parent, {user: userData}) => {
+    addUser: async (parent, { user: userData }) => {
       try {
         const user = await User.create(userData);
         const token = await signToken(user);

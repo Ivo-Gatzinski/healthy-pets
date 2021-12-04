@@ -19,9 +19,14 @@ const petSchema = new Schema({
     required: true,
     trim: true,
   },
-
-  notes: [noteSchema],
+  species: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  notes: [noteSchema]
 });
+
 const Pet = model("Pet", petSchema);
 
-module.exports = Pet;
+module.exports = petSchema;

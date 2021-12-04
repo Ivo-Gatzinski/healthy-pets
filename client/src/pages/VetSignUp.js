@@ -20,13 +20,14 @@ const styles = {
   },
 };
 
-//const initialFormState = {
-//  username: "",
-//  password: "",
-//};
+const initialFormState = {
+ username: "",
+ password: "",
+};
 
 export default function VetSignUp() {
   const { isLoggedIn, signup, loading, error } = useAuth();
+  const [formState, setFormState] = useState(initialFormState);
 
 
   useEffect(() => {
@@ -36,15 +37,15 @@ export default function VetSignUp() {
     }
   }, [error]);
 
-  //const handleInputChange = (evt) => {
-    //const { name, value } = evt.target;
-   // setFormState((prevState) => ({ ...prevState, [name]: value }));
-  //};
+  const handleInputChange = (evt) => {
+    const { name, value } = evt.target;
+   setFormState((prevState) => ({ ...prevState, [name]: value }));
+  };
 
-  //const handleSubmit = async (evt) => {
-  //  evt.preventDefault();
-    //signup(formState);
-  //};
+  const handleSubmit = async (evt) => {
+   evt.preventDefault();
+    signup(formState);
+  };
 
   if (isLoggedIn) {
     // redirect to home if user is logged in
@@ -56,7 +57,7 @@ export default function VetSignUp() {
       <h1>Sign Up</h1>
       <hr />
       <div> Vet ICON</div>
-      <form onSubmit="test">
+      <form onSubmit={handleSubmit}>
         <div style={styles.formControl}>
           <label htmlFor="username" style={styles.label}>
             Username
@@ -68,8 +69,8 @@ export default function VetSignUp() {
             type="text"
             placeholder="Enter username"
             name="username"
-           // value={formState.username.value}
-            //onChange={handleInputChange}
+           value={formState.username.value}
+            onChange={handleInputChange}
           />
         </div>
         <div style={styles.formControl}>
@@ -82,8 +83,8 @@ export default function VetSignUp() {
             type="password"
             name="password"
             placeholder="Enter password"
-            //value={formState.password.value}
-            //onChange={handleInputChange}
+            value={formState.password.value}
+            onChange={handleInputChange}
           />
         </div>
         <div style={styles.formControl}>

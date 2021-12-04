@@ -40,21 +40,21 @@ function App() {
             <Route path="/ownerlogin">
               <OwnerLogin />
             </Route>
-            <PrivateRoute path="/notes">
+            <Route path="/notes">
               <OwnerNotes />
-            </PrivateRoute>
-            <PrivateRoute path="/mypets">
+            </Route>
+            <Route path="/mypets">
               <OwnerHome />
-            </PrivateRoute>
+            </Route>
             <Route path="/ownersignup">
               <OwnerSignUp />
             </Route>
             <Route path="/addnote">
               <AddNotes />
             </Route>
-            <PrivateRoute path="/addpet">
+            <Route path="/addpet">
               <AddPets />
-            </PrivateRoute>
+            </Route>
             {/* Use PrivateRoute for pages that should only be accessible to a
             user that has logged in.*/}
             <PrivateRoute path="/protected">

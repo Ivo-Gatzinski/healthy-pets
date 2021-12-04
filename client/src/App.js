@@ -28,9 +28,9 @@ function App() {
             <Route path="/vetlogin">
               <VetLogin />
             </Route>
-            <PrivateRoute path="/vetpets">
+            <Route path="/vetpets">
               <VetPets />
-            </PrivateRoute>
+            </Route>
             <Route path="/vetnotes">
               <VetNotes />
             </Route>

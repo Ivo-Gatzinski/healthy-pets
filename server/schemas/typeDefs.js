@@ -10,14 +10,14 @@ enum Role {
 }
 
 type User {
-  _id: ID
+  _id: ID!
   username: String!
   pets: [Pet]
   role: Role
  }
  
  type Pet {
-  _id: ID
+  _id: ID!
   firstName: String!
   lastName: String!
   breed: String!
@@ -26,7 +26,7 @@ type User {
  }
 
  type Note {
-  _id: ID
+  _id: ID!
   text: String!
   subject: String!
   createdAt: Date

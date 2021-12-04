@@ -23,3 +23,11 @@ mutation AddNote($note: noteInput) {
   }
 }
 `;
+
+export const ADD_PET = gql`
+mutation AddPet($pet: petInput) {
+  addNote(input: $pet) {
+    token
+  }
+}
+`;

@@ -27,6 +27,4 @@ const petSchema = new Schema({
   notes: [noteSchema]
 });
 
-const Pet = model("Pet", petSchema);
-
 module.exports = petSchema;

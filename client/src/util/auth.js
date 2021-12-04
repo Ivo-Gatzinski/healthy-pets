@@ -92,15 +92,15 @@ export const AuthProvider = ({ children }) => {
     token.set(state.authToken);
   }, [state.authToken]);
 
-  const login = async ({ email, password }) => {
+  const login = async ({ username, password }) => {
     dispatch({ type: LOADING });
     try {
       // TODO: implement improved validation.
-      if (!email || !password) {
+      if (!username || !password) {
         // TODO: implement improved error message.
         throw new Error("Auth error. Invalid parameter received.");
       }
-      const { data } = await loginUser({ variables: { email, password } });
+      const { data } = await loginUser({ variables: { username, password } });
       dispatch({ type: LOGIN_SUCCESS, payload: data.login.token });
     } catch (error) {
       console.log(error);
@@ -108,17 +108,17 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const signup = async ({ email, password, username }) => {
+  const signup = async ({ password, username }) => {
     dispatch({ type: LOADING });
     try {
       // TODO: implement improved validation.
-      if (!email || !password || !username) {
+      if (!password || !username) {
         // TODO: implement improved error message
         throw new Error("Auth error. Invalid parameter received.");
       }
 
       const { data } = await createUser({
-        variables: { email, password, username },
+        variables: { password, username },
       });
       dispatch({ type: LOGIN_SUCCESS, payload: data.createUser.token });
     } catch (error) {

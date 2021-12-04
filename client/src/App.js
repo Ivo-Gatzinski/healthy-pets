@@ -28,12 +28,12 @@ function App() {
             <Route path="/vetlogin">
               <VetLogin />
             </Route>
-            <PrivateRoute path="/vetpets">
+            <Route path="/vetpets">
               <VetPets />
-            </PrivateRoute>
-            <PrivateRoute path="/vetnotes">
+            </Route>
+            <Route path="/vetnotes">
               <VetNotes />
-            </PrivateRoute>
+            </Route>
             <Route path="/vetsignup">
               <VetSignUp />
             </Route>
@@ -49,9 +49,9 @@ function App() {
             <Route path="/ownersignup">
               <OwnerSignUp />
             </Route>
-            <PrivateRoute path="/addnote">
+            <Route path="/addnote">
               <AddNotes />
-            </PrivateRoute>
+            </Route>
             <Route path="/addpet">
               <AddPets />
             </Route>

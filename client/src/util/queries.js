@@ -4,9 +4,19 @@ export const ME = gql`
   query me {
     me {
       _id
-      lastLogin
       username
-      email
+      pets {
+        firstName
+        lastName
+        breed
+        species
+        notes {
+          text
+          subjecxt
+          createdAt
+        }
+      }
+      role
     }
   }
 `;

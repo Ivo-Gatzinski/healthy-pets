@@ -4,8 +4,8 @@ import LogoPetsLogout from "../components/LogoPetsLogout";
 export default function OwnerNotes() {
   const pets = [
     { name: "luna", _id: 1 },
-    { name: "Buddy", id: 2 },
-    { name: "Doggy", id: 3 },
+    { name: "Buddy", _id: 2 },
+    { name: "Doggy", _id: 3 },
   ];
   const notes = [
     { _id: 1, subject: "Note1", date: "11/28", text: "blablabla" },
@@ -24,7 +24,7 @@ export default function OwnerNotes() {
       <div className="card-container">
         <div>
           {notes.map((note) => (
-            <div key={note.id} className="card mb-3">
+            <div key={note._id} className="card mb-3">
               <div>{note.subject}</div>
               <div>{note.date}</div>
               <div>{note.text}</div>

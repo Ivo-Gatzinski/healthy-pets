@@ -1,10 +1,8 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { Redirect, Link} from "react-router-dom";
-import {token} from "../util/auth";
 import LogoLogout from "../components/LogoLogout";
 import { useQuery } from "@apollo/client";
 import { ME } from "../util/queries";
-import { ApolloProvider } from "@apollo/client";
 
 
 
@@ -13,7 +11,7 @@ export default function VetPets() {
 
 const info = useQuery(ME);
   console.log(info);
-  
+
   const pets = [
     { name: "Luna", _id: "abc" },
     { name: "Doggerston", _id: "zzz" },

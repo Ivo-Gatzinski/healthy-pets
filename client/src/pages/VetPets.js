@@ -31,7 +31,7 @@ const info = useQuery(ME);
               // disabled={loading}
               id="nameInput"
               type="text"
-              placeholder="Enter username"
+              placeholder="Search for Petname"
               name="nameInput"
               value={petName}
               onChange={(evt) => setPetName(evt.target.value)}

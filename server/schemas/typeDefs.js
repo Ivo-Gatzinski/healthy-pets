@@ -1,8 +1,7 @@
 const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
-"Unix time stamp in milliseconds."
-  scalar Date
+scalar Date
 
 enum Role {
   OWNER
@@ -29,7 +28,7 @@ type User {
   _id: ID!
   text: String!
   subject: String!
-  createdAt: Date
+  createdAt: Date!
 }
 
 input userInput {
@@ -41,7 +40,6 @@ input userInput {
 input noteInput {
  text: String!
  subject: String!
- petId: ID!
 }
 
 input petInput {

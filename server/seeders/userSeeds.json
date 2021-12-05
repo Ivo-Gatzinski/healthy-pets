@@ -38,12 +38,12 @@
             "species": "draco",
             "notes": [
                 {
-                    
+                    "createdAt": "12/12/2021",
                     "subject": "about draco",
                     "text": "very healthy"
                 },
                 {
-                    
+                    "createdAt": "12/11/2021",
                     "subject": "about petovski",
                     "text": "even healthier"
                 }]

@@ -1,7 +1,15 @@
 import { useAuth } from "../util/auth";
 import LogoPetsLogout from "../components/LogoPetsLogout";
+import { useQuery } from "@apollo/client";
+import { ME } from "../util/queries";
 
 export default function OwnerNotes() {
+
+  const { isLoggedIn, user } = useAuth();
+  const { data } = useQuery(ME);
+
+  console.log(data.me.pets[0].notes);
+
   const pets = [
     { name: "luna", _id: 1 },
     { name: "Buddy", _id: 2 },
@@ -12,10 +20,6 @@ export default function OwnerNotes() {
     { _id: 2, subject: "Note2", date: "11/23", text: "blablabla"},
     { _id: 3, subject: "Note3", date: "11/14", text: "blablabla"},
   ];
-  const { isLoggedIn } = useAuth();
-  // if (!isLoggedIn) {
-  //   return <Redirect to="/ownerlogin" />;
-  // }
 
   return (
     <div>
@@ -26,7 +30,6 @@ export default function OwnerNotes() {
           {notes.map((note) => (
             <div key={note._id} className="card mb-3">
               <div>{note.subject}</div>
-              <div>{note.date}</div>
               <div>{note.text}</div>
             </div>
           ))}

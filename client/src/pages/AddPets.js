@@ -2,17 +2,6 @@ import { useAuth } from "../util/auth";
 import { useState } from "react";
 import LogoPetsLogout from "../components/LogoPetsLogout";
 
-const styles = {
-    formControl: {
-      display: "flex",
-      padding: "0.25em",
-    },
-    label: {
-      flex: "0 1 6em",
-      paddingRight: "0.25em",
-    },
-  };
-
   const initialFormState = {
     first: "",
     last:"",
@@ -40,8 +29,8 @@ export default function AddPets() {
       <LogoPetsLogout/>
       <h1>Add a new pet:</h1>
       <form onSubmit={handleSubmit}>
-        <div style={styles.formControl}>
-          <label htmlFor="petname" style={styles.label}>
+        <div>
+          <label htmlFor="petname">
             Pet Name
           </label>
           <input
@@ -54,8 +43,8 @@ export default function AddPets() {
             onChange={handleInputChange}
           />
         </div>
-        <div style={styles.formControl}>
-          <label htmlFor="ownerlastname" style={styles.label}>
+        <div>
+          <label htmlFor="ownerlastname">
             Owner Last Name
           </label>
           <input
@@ -69,8 +58,8 @@ export default function AddPets() {
             onChange={handleInputChange}
           />
         </div>
-        <div style={styles.formControl}>
-          <label htmlFor="species" style={styles.label}>
+        <div>
+          <label htmlFor="species">
             Species
           </label>
           <input
@@ -84,8 +73,8 @@ export default function AddPets() {
             onChange={handleInputChange}
           />
         </div>
-        <div style={styles.formControl}>
-          <label htmlFor="breed" style={styles.label}>
+        <div>
+          <label htmlFor="breed">
             Breed
           </label>
           <input
@@ -99,7 +88,7 @@ export default function AddPets() {
             onChange={handleInputChange}
           />
         </div>
-        <div style={styles.formControl}>
+        <div>
           <button type="submit">
             Submit
           </button>

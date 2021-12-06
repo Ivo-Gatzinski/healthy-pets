@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { Redirect, Link} from "react-router-dom";
+import { Link} from "react-router-dom";
 import LogoLogout from "../components/LogoLogout";
 import { useQuery } from "@apollo/client";
 import { ME } from "../util/queries";
 
 export default function VetPets() {
   const { loading, data } = useQuery(ME);
-  let pets = data?.me.pets || [];
-  console.log(pets)
+  let pets = data?.me.pets|| [];
+ 
 
   // const pets = [
   //   { name: "Luna", _id: "abc" },
@@ -43,7 +43,7 @@ export default function VetPets() {
             .filter((pet) =>
               pet.firstName.toLowerCase().includes(petName.toLowerCase())
             )
-            .map((pet) => <div key={pet._id}><Link to={`/vetnotes/${pet._id}`}>{pet.name}</Link></div>)
+            .map((pet) => <div key={pet._id}><Link to={`/vetnotes/${pet._id}`}>{pet.firstName}</Link></div>)
         ) : (
           <p>No pets.</p>
         )}

@@ -2,13 +2,16 @@ const {
   AuthenticationError,
   UserInputError,
 } = require("apollo-server-express");
-const { User } = require("../models");
+const { User, Pet} = require("../models");
 const { signToken } = require("../util/auth");
 const { dateScalar } = require("./customScalars");
 
 const resolvers = {
   Date: dateScalar,
   Query: {
+    pet: async (parent, { petId }) => {
+      return Pet.findOne({ _id: petId });
+    },
     me: async (parent, args, ctx) => {
       // if ctx.user is undefined, then no token or an invalid token was
       // provided by the client.

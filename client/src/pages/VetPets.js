@@ -9,13 +9,13 @@ import { ME } from "../util/queries";
 
 export default function VetPets() {
 
-const info = useQuery(ME);
+const  {loading, data} = useQuery(ME);
 
-console.log(info);
 
-const pets = info?.data.me.pets || [];
+  const pets  = data?.me.pets || [];
+ 
 
-console.log(pets);
+
 
   // const pets = [
   //   { name: "Luna", _id: "abc" },

@@ -23,6 +23,7 @@ const styles = {
 const initialFormState = {
  username: "",
  password: "",
+ role: "VET",
 };
 
 export default function VetSignUp() {
@@ -69,7 +70,7 @@ export default function VetSignUp() {
             type="text"
             placeholder="Enter username"
             name="username"
-           value={formState.username.value}
+           value={formState.username}
             onChange={handleInputChange}
           />
         </div>
@@ -83,7 +84,7 @@ export default function VetSignUp() {
             type="password"
             name="password"
             placeholder="Enter password"
-            value={formState.password.value}
+            value={formState.password}
             onChange={handleInputChange}
           />
         </div>

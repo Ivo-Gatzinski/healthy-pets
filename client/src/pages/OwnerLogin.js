@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Redirect, Link } from "react-router-dom";
 import LogoHome from "../components/LogoHome";
 import { useAuth } from "../util/auth";
+// import { useQuery } from '@apollo/client';
+// import { ME } from '../util/queries';
 
 
 // This signup form is intentionally minimalist to reduce effort required to
@@ -26,8 +28,11 @@ const initialFormState = {
 };
 
 export default function OwnerLogin() {
-  const { isLoggedIn, login, loading, error } = useAuth();
+  const { isLoggedIn, login, error } = useAuth();
   const [formState, setFormState] = useState(initialFormState);
+  // const data = useQuery(ME);
+
+  // console.log(data);
 
   useEffect(() => {
     if (error) {
@@ -47,9 +52,9 @@ export default function OwnerLogin() {
   };
 
   if (isLoggedIn) {
-    // redirect to home if user is logged in
     return <Redirect to="/mypets" />;
   }
+
   return (
     <div>
       <LogoHome/>
@@ -62,12 +67,11 @@ export default function OwnerLogin() {
           </label>
           <input
             autoFocus
-            disabled={loading}
             id="username"
             type="text"
             placeholder="Enter username"
             name="username"
-            value={formState.username.value}
+            value={formState.username}
             onChange={handleInputChange}
           />
         </div>
@@ -76,23 +80,21 @@ export default function OwnerLogin() {
             Password
           </label>
           <input
-            disabled={loading}
             id="new-password"
             type="password"
             name="password"
             placeholder="Enter password"
-            value={formState.password.value}
+            value={formState.password}
             onChange={handleInputChange}
           />
         </div>
         <div style={styles.formControl}>
-          <button disabled={loading} type="submit">
-            {loading ? "Loading..." : "Submit"}
+          <button type="submit">
+            Submit
           </button>
         </div>
         <div>
           <p>Don't have an account yet? <Link to="ownersignup"> Sign Up </Link></p>
-          
         </div>
       </form>
     </div>

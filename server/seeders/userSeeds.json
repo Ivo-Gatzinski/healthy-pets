@@ -3,22 +3,26 @@
         "role": "VET",
         "username": "user",
         "password": "user12345678",
-        "pets": []
+        "pets": [
+            "pet",
+            "Luna"
+        ]
     },
     {
         "role": "OWNER",
         "username": "owner",
         "password": "user12345678",
         "pets": [
-            {
-                "firstName": "Luna"
-            }
+            "Luna"
         ]
     },
     {
         "role": "OWNER",
         "username": "parent",
         "password": "user12345678",
-        "pets": []
+        "pets": [
+            "fido",
+            "pet"
+        ]
     }
 ]

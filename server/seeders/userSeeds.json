@@ -4,25 +4,8 @@
         "username": "user",
         "password": "user12345678",
         "pets": [
-        {   
-            
-            "firstName": "pet",
-            "lastName": "petovski",
-            "breed": "pet",
-            "species": "draco",
-            "notes": [
-                {
-                    
-                    "subject": "about draco",
-                    "text": "very healthy"
-                },
-                {
-                    
-                    "subject": "about petovski",
-                    "text": "even healthier"
-                }]
-            
-        }
+            "pet",
+            "Luna"
         ]
     },
     {
@@ -30,25 +13,7 @@
         "username": "owner",
         "password": "user12345678",
         "pets": [
-        {   
-            
-            "firstName": "pet",
-            "lastName": "petovski",
-            "breed": "pet",
-            "species": "draco",
-            "notes": [
-                {
-                    
-                    "subject": "about draco",
-                    "text": "very healthy"
-                },
-                {
-                    
-                    "subject": "about petovski",
-                    "text": "even healthier"
-                }]
-            
-        }
+            "Luna"
         ]
     },
     {
@@ -56,25 +21,8 @@
         "username": "parent",
         "password": "user12345678",
         "pets": [
-        {   
-            
-            "firstName": "fido",
-            "lastName": "fidowski",
-            "breed": "fido",
-            "species": "dog",
-            "notes": [
-                {
-                    
-                    "subject": "about fido",
-                    "text": "very healthy"
-                },
-                {
-                    
-                    "subject": "about fidowski",
-                    "text": "even healthier"
-                }]
-            
-        }
+            "fido",
+            "pet"
         ]
     }
 ]

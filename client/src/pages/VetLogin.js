@@ -3,7 +3,6 @@ import { Redirect, Link } from "react-router-dom";
 import { useAuth } from "../util/auth";
 import LogoHome from "../components/LogoHome";
 
-
 // This signup form is intentionally minimalist to reduce effort required to
 // customize it to your app's needs. See the excellent best practices guide for
 // sign informs on web.dev https://web.dev/sign-in-form-best-practices/
@@ -28,7 +27,7 @@ const initialFormState = {
 export default function VetLogin() {
   const { isLoggedIn, login, loading, error } = useAuth();
   const [formState, setFormState] = useState(initialFormState);
-
+  
   useEffect(() => {
     if (error) {
       // TODO: replace window alert with custom alert
@@ -43,6 +42,7 @@ export default function VetLogin() {
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
+
     login(formState);
   };
 
@@ -52,12 +52,12 @@ export default function VetLogin() {
   }
   return (
     <div>
-      <LogoHome/>
+      <LogoHome />
       <h1>Login</h1>
       <hr />
       <div> Vet ICON </div>
       <form onSubmit={handleSubmit}>
-      <div style={styles.formControl}>
+        <div style={styles.formControl}>
           <label htmlFor="username" style={styles.label}>
             Username
           </label>
@@ -68,7 +68,7 @@ export default function VetLogin() {
             type="text"
             placeholder="Enter username"
             name="username"
-            value={formState.username.value}
+            value={formState.username}
             onChange={handleInputChange}
           />
         </div>
@@ -82,7 +82,7 @@ export default function VetLogin() {
             type="password"
             name="password"
             placeholder="Enter password"
-            value={formState.password.value}
+            value={formState.password}
             onChange={handleInputChange}
           />
         </div>
@@ -92,8 +92,9 @@ export default function VetLogin() {
           </button>
         </div>
         <div>
-          <p>Don't have an account yet? <Link to="/vetsignup"> Sign Up </Link> </p>
-          
+          <p>
+            Don't have an account yet? <Link to="/vetsignup"> Sign Up </Link>{" "}
+          </p>
         </div>
       </form>
     </div>

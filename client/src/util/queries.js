@@ -13,7 +13,6 @@ export const ME = gql`
         notes {
           text
           subject
-          
         }
       }
       role

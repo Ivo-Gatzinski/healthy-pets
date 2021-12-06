@@ -1,6 +1,9 @@
 import { useAuth } from "../util/auth";
+import { Redirect } from "react-router-dom";
 import { useState } from "react";
 import LogoPetsLogout from "../components/LogoPetsLogout";
+import { useMutation } from "@apollo/client";
+import { ADD_PET } from "../util/mutations";
 
 const styles = {
     formControl: {
@@ -14,15 +17,15 @@ const styles = {
   };
 
   const initialFormState = {
-    first: "",
-    last:"",
+    firstName: "",
+    lastName:"",
     species:"",
     breed: "",
   };
 
 export default function AddPets() {
+  const [addPet] = useMutation(ADD_PET);
 
-  //   const { isLoggedIn, addPets, loading, error } = useAuth();
   const [formState, setFormState] = useState(initialFormState);
 
   const handleInputChange = (evt) => {
@@ -32,7 +35,22 @@ export default function AddPets() {
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
-    // addPets(formState);
+    console.log(formState);
+    try {
+      const { data } = await addPet({
+        variables: { ...formState },
+      });
+
+      setFormState({
+      firstName: "",
+      lastName:"",
+      species:"",
+      breed: "",
+    });
+    } catch (err) {
+      console.error(err);
+    }
+    return <Redirect to="/mypets"/>;
   };
 
   return (
@@ -49,8 +67,8 @@ export default function AddPets() {
             id="petname"
             type="text"
             placeholder="Enter your pet's name"
-            name="petname"
-            value={formState.first.value}
+            name="firstName"
+            value={formState.firstName}
             onChange={handleInputChange}
           />
         </div>
@@ -60,12 +78,11 @@ export default function AddPets() {
           </label>
           <input
             autoFocus
-            // disabled={loading}
             id="ownerlastname"
             type="text"
             placeholder="Enter your last name"
-            name="ownerlastname"
-            value={formState.last.value}
+            name="lastName"
+            value={formState.lastName}
             onChange={handleInputChange}
           />
         </div>
@@ -75,12 +92,11 @@ export default function AddPets() {
           </label>
           <input
             autoFocus
-            // disabled={loading}
             id="species"
             type="text"
             placeholder="Enter your pet's species"
             name="species"
-            value={formState.species.value}
+            value={formState.species}
             onChange={handleInputChange}
           />
         </div>
@@ -90,12 +106,11 @@ export default function AddPets() {
           </label>
           <input
             autoFocus
-            // disabled={loading}
             id="breed"
             type="text"
             placeholder="Enter your pet's breed"
-            name="petname"
-            value={formState.breed.value}
+            name="breed"
+            value={formState.breed}
             onChange={handleInputChange}
           />
         </div>

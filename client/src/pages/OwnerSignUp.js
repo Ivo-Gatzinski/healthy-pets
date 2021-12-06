@@ -25,7 +25,7 @@ const initialFormState = {
 };
 
 export default function OwnerSignUp() {
-  const { isLoggedIn, signup, loading, error } = useAuth();
+  const { isLoggedIn, signup, error } = useAuth();
   const [formState, setFormState] = useState(initialFormState);
 
   useEffect(() => {
@@ -60,7 +60,6 @@ export default function OwnerSignUp() {
           </label>
           <input
             autoFocus
-            disabled={loading}
             id="username"
             type="text"
             placeholder="Enter username"
@@ -74,7 +73,6 @@ export default function OwnerSignUp() {
             Password
           </label>
           <input
-            disabled={loading}
             id="new-password"
             type="password"
             name="password"
@@ -84,8 +82,8 @@ export default function OwnerSignUp() {
           />
         </div>
         <div style={styles.formControl}>
-          <button disabled={loading} type="submit">
-            {loading ? "Loading..." : "Submit"}
+          <button type="submit">
+            Submit
           </button>
         </div>
         <div>

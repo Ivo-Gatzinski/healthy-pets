@@ -10,13 +10,18 @@ import { ME } from "../util/queries";
 export default function VetPets() {
 
 const info = useQuery(ME);
-  console.log(info);
 
-  const pets = [
-    { name: "Luna", _id: "abc" },
-    { name: "Doggerston", _id: "zzz" },
-    { name: "Snoopy", _id: "mmm" },
-  ];
+console.log(info);
+
+const pets = info?.data.me.pets || [];
+
+console.log(pets);
+
+  // const pets = [
+  //   { name: "Luna", _id: "abc" },
+  //   { name: "Doggerston", _id: "zzz" },
+  //   { name: "Snoopy", _id: "mmm" },
+  // ];
   const [petName, setPetName] = useState("");
 
   return (
@@ -44,9 +49,9 @@ const info = useQuery(ME);
         {pets ? (
           pets
             .filter((pet) =>
-              pet.name.toLowerCase().includes(petName.toLowerCase())
+              pet.firstName.toLowerCase().includes(petName.toLowerCase())
             )
-            .map((pet) => <div key={pet._id}><Link to={`/vetnotes/${pet._id}`}>{pet.name}</Link></div>)
+            .map((pet) => <div key={pet._id}><Link to={`/vetnotes/${pet._id}`}>{pet.firstName}</Link></div>)
         ) : (
           <p>No pets.</p>
         )}

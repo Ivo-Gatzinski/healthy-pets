@@ -1,6 +1,5 @@
 const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
-const petSchema = require("./Pet");
 
 const userSchema = new Schema({
 
@@ -17,7 +16,12 @@ const userSchema = new Schema({
     minlength: 12,
   },
 
-  pets: [petSchema],
+  pets: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Pet',
+    },
+  ],
 
   role: {
     type: String,

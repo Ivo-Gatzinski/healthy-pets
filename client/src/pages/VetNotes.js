@@ -3,7 +3,7 @@ import { useState  } from "react";
 import { useParams } from "react-router-dom";
 //import { useAuth } from "../util/auth";
 import { useQuery } from "@apollo/client";
-import { ME } from "../util/queries";
+import { PET } from "../util/queries";
 
 
 
@@ -15,23 +15,18 @@ export default function VetNotes() {
   //const info = useQuery(ME);
 
   
-  const { loading, data } = useQuery(ME);
- //const allNotes = data?.notes || [];
-//const note = data?.me.pets || [];
-  //const note = info.data.me.pets[0].notes[0]
-  const allNotes = [];
- // const pet = [{ name: "luna", _id: 1 }, { name: "Buddy", _id: 2 },{ name: "Doggy", _id: 3 }];
-  //const notes = [
-    //{ _id: 1, subject: "luna", text: "blablabla" },
-  //  { _id: 2, subject: "Buddy", text: "blablabla"},
-  //  { _id: 3, subject: "Doggy", text: "blablabla"},
- // ];
+  const  { data } = useQuery(PET, {
+    // Pass the `thoughtId` URL parameter into query to retrieve this thought's data
+    variables: { petId: petId  },
+  });
+  console.log(data);
+  const notes = data?.pet.notes || [];
+  console.log(notes);
+  
+
   //const [petName, setPetName] = useState("")
 
-   //if (!isLoggedIn) {
-    //redirect to home if user is logged in
-     //return <Redirect to="/vetlogin" />;
-   //}
+  
 
   return (
     <div>
@@ -44,10 +39,8 @@ export default function VetNotes() {
      <div>
      <div className="col-12 col-md-8 mb-3">
           {/* If the data is still loading, render a loading message */}
-          {loading ? (
-            <div>Loading...</div>
-          ) : (
-            allNotes.map(note => (
+          { 
+            notes.map(note => (
               <div key={note._id} className="card mb-3">
                 <div>
                 {note.subject}
@@ -59,7 +52,7 @@ export default function VetNotes() {
     
               </div>
             ))
-          )}
+          }
         </div>
 
      </div>
@@ -68,4 +61,4 @@ export default function VetNotes() {
     </div>
   );
 }
-///-- other code
+

@@ -57,6 +57,7 @@ type Auth {
 
   type Query {
     me: User
+    pet(petId: ID!): Pet
   }
 
   type Mutation {

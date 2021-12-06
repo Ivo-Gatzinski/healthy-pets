@@ -22,3 +22,21 @@ export const ME = gql`
     }
   }
 `;
+
+export const PET = gql`
+  query getSinglePet($petId: ID!) {
+    pet(petId: $petId) {
+      _id
+      firstName
+      lastName
+      breed
+      species
+      notes {
+        _id
+        text
+        subject
+        createdAt
+      }
+    }
+  }
+`;

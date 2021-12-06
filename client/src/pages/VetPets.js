@@ -1,13 +1,21 @@
 import { useState } from "react";
-import { Link} from "react-router-dom";
+import { Redirect, Link} from "react-router-dom";
 import LogoLogout from "../components/LogoLogout";
 import { useQuery } from "@apollo/client";
 import { ME } from "../util/queries";
 
+
+
+
 export default function VetPets() {
-  const { loading, data } = useQuery(ME);
-  let pets = data?.me.pets|| [];
+
+const  {loading, data} = useQuery(ME);
+
+
+  const pets  = data?.me.pets || [];
  
+
+
 
   // const pets = [
   //   { name: "Luna", _id: "abc" },

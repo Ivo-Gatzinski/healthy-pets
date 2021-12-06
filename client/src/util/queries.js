@@ -6,13 +6,16 @@ export const ME = gql`
       _id
       username
       pets {
+        _id
         firstName
         lastName
         breed
         species
         notes {
+          _id
           text
           subject
+          createdAt
         }
       }
       role

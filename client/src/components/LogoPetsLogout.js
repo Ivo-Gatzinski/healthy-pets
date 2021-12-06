@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../util/auth";
-import "./LogoPetsLogout.css";
+//import "./LogoPetsLogout.css";
 
 export default function LogoPetsLogout() {
   const { isLoggedIn, logout } = useAuth();

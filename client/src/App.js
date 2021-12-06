@@ -31,7 +31,7 @@ function App() {
             <Route path="/vetpets">
               <VetPets />
             </Route>
-            <Route path="/vetnotes">
+            <Route path="/vetnotes/:petId">
               <VetNotes />
             </Route>
             <Route path="/vetsignup">

@@ -2,14 +2,19 @@ import { useEffect, useState } from "react";
 import { Redirect, Link} from "react-router-dom";
 import { useAuth } from "../util/auth";
 import LogoLogout from "../components/LogoLogout";
-
+import { useQuery } from "@apollo/client";
+import { ME } from "../util/queries";
 
 export default function VetPets() {
-  const pets = [
-    { name: "Luna", _id: "abc" },
-    { name: "Doggerston", _id: "zzz" },
-    { name: "Snoopy", _id: "mmm" },
-  ];
+  const { loading, data } = useQuery(ME);
+  let pets = data?.me.pets || [];
+  console.log(pets)
+
+  // const pets = [
+  //   { name: "Luna", _id: "abc" },
+  //   { name: "Doggerston", _id: "zzz" },
+  //   { name: "Snoopy", _id: "mmm" },
+  // ];
   const [petName, setPetName] = useState("");
 
   return (
@@ -37,7 +42,7 @@ export default function VetPets() {
         {pets ? (
           pets
             .filter((pet) =>
-              pet.name.toLowerCase().includes(petName.toLowerCase())
+              pet.firstName.toLowerCase().includes(petName.toLowerCase())
             )
             .map((pet) => <div key={pet._id}><Link to={`/vetnotes/${pet._id}`}>{pet.name}</Link></div>)
         ) : (

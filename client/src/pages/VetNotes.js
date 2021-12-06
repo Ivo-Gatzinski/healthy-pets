@@ -1,29 +1,31 @@
 import React from 'react';
-import LogoPetsNote from '../components/LogoPetsNote';
 import { useState  } from "react";
-import { Redirect } from "react-router-dom";
+import { useParams } from "react-router-dom";
 //import { useAuth } from "../util/auth";
 import { useQuery } from "@apollo/client";
 import { ME } from "../util/queries";
 
 
 
-export default function VetNotes(e) {
+export default function VetNotes() {
   //const { isLoggedIn } = useAuth();
-  e.preventDefault();
+  const { petId } = useParams();
+  console.log(petId);
 
   //const info = useQuery(ME);
+
   
   const { loading, data } = useQuery(ME);
- const pet = data?.me.pets || [];
+ //const allNotes = data?.notes || [];
+//const note = data?.me.pets || [];
   //const note = info.data.me.pets[0].notes[0]
-  console.log(note);
-  const pet = [{ name: "luna", _id: 1 }, { name: "Buddy", _id: 2 },{ name: "Doggy", _id: 3 }];
-  const allNotes = [
-    { _id: 1, subject: "luna", text: "blablabla" },
-    { _id: 2, subject: "Buddy", text: "blablabla"},
-    { _id: 3, subject: "Doggy", text: "blablabla"},
-  ];
+  const allNotes = [];
+ // const pet = [{ name: "luna", _id: 1 }, { name: "Buddy", _id: 2 },{ name: "Doggy", _id: 3 }];
+  //const notes = [
+    //{ _id: 1, subject: "luna", text: "blablabla" },
+  //  { _id: 2, subject: "Buddy", text: "blablabla"},
+  //  { _id: 3, subject: "Doggy", text: "blablabla"},
+ // ];
   //const [petName, setPetName] = useState("")
 
    //if (!isLoggedIn) {
@@ -33,8 +35,8 @@ export default function VetNotes(e) {
 
   return (
     <div>
-      <LogoPetsNote/>
-        <h2>Notes for: {pet.firstName}</h2>
+      
+        <h2>Notes for: </h2>
       <div>
       <div>
         

@@ -12,8 +12,7 @@ export const ME = gql`
         species
         notes {
           text
-          subjecxt
-          createdAt
+          subject
         }
       }
       role

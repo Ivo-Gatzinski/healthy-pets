@@ -17,9 +17,10 @@ export const LOGIN = gql`
 `;
 
 export const ADD_NOTE = gql`
-mutation AddNote($note: noteInput) {
-  addNote(note: $note) {
+mutation AddNote($text: String!, $subject: String!) {
+  addNote(text: $text, subject: $subject) {
     notes {
+    _id
     text
     subject
     }

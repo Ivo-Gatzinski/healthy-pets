@@ -58,9 +58,7 @@ const resolvers = {
         const { firstName, lastName, breed, species } = args;
         const petData = { firstName, lastName, breed, species };
         const pet = await Pet.create(petData);
-
         // console.log(pet);
-
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
           { $addToSet: { pets: pet._id } },
@@ -71,11 +69,21 @@ const resolvers = {
       }
       throw new AuthenticationError("Please log in.");
     },
-    addNote: async (parent, { note: { petId, ...newNote } }, context) => {
+    addNote: async (parent, args, context) => {
+      // console.log(pet._id)
       if (context.user?.role === "VET") {
+        // const updatedPet = await Pet.findOneAndUpdate(
+        //   { _id: petId },
+        //   { $push: newNote },
+        //   { new: true, runValidators: true }
+        // );
+        const { text, subject, petId } = args;
+        const noteData = { text, subject, petId };
+        // const note = await Note.create(noteData);
+        console.log(noteData);
         const updatedPet = await Pet.findOneAndUpdate(
           { _id: petId },
-          { $push: newNote },
+          { $addToSet: { notes: noteData } },
           { new: true, runValidators: true }
         );
         return updatedUser;

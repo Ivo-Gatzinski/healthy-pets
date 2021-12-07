@@ -40,7 +40,7 @@ function App() {
             <Route path="/ownerlogin">
               <OwnerLogin />
             </Route>
-            <Route path="/notes">
+            <Route path="/ownernotes/:petId">
               <OwnerNotes />
             </Route>
             <Route path="/mypets">

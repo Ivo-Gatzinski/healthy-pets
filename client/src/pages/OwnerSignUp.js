@@ -22,6 +22,7 @@ const styles = {
 const initialFormState = {
   username: "",
   password: "",
+  role: "OWNER"
 };
 
 export default function OwnerSignUp() {

@@ -41,6 +41,8 @@ export default function AddPets() {
         variables: { ...formState },
       });
 
+      console.log(data);
+
       setFormState({
       firstName: "",
       lastName:"",

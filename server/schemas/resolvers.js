@@ -26,10 +26,9 @@ const resolvers = {
       try {
         const user = await User.create(userData);
         const token = await signToken(user);
-        console.log(user, token);
         return { user, token };
       } catch (error) {
-        if (error.name === "MongoError" && error.code === 11000) {
+        if (error.code === 11000) {
           const [[key, value]] = Object.entries(error.keyValue);
           throw new UserInputError(`${key} "${value}" already exists.`);
         }
@@ -51,13 +50,23 @@ const resolvers = {
       await user.save();
       return { token, user };
     },
-    addPet: async (parent, { pet }, context) => {
+    addPet: async (parent, args, context) => {
+      // console.log("In addPet");
+      // console.log(args);
+      // console.log(context.user);
       if (context.user) {
+        const { firstName, lastName, breed, species } = args;
+        const petData = { firstName, lastName, breed, species };
+        const pet = await Pet.create(petData);
+
+        // console.log(pet);
+
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $push: { pets: pet } },
+          { $addToSet: { pets: pet._id } },
           { new: true, runValidators: true }
         );
+        // console.log(updatedUser);
         return updatedUser;
       }
       throw new AuthenticationError("Please log in.");

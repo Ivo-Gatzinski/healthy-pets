@@ -118,7 +118,7 @@ export const AuthProvider = ({ children }) => {
       }
 
       const { data } = await addUser({
-        variables: { username, password, role },
+        variables: { user: {username, password, role }},
       });
       dispatch({ type: LOGIN_SUCCESS, payload: data.addUser.token });
     } catch (error) {

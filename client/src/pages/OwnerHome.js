@@ -26,7 +26,7 @@ export default function OwnerHome() {
           pets.map((pet) => (
             <div key={pet._id} className="card mb-3">
               {pet.firstName}
-              <Link to="/notes"> ☑️ </Link>
+              <Link to={`/ownernotes/${pet._id}`}> ☑️ </Link>
             </div>
           ))
         )}

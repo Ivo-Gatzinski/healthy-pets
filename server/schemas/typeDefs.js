@@ -34,7 +34,7 @@ type User {
 input userInput {
   username: String!
   password: String!
-  role: Role
+  role: Role!
 }
 
 input noteInput {
@@ -64,7 +64,8 @@ type Auth {
     addUser(user: userInput): Auth
     login(username: String!, password: String!): Auth
     addNote(note: noteInput): Pet
-    addPet(pet: petInput): User
+    addPet(firstName: String!, lastName: String!, breed: String!, species: String!): Pet
+    
   }
 `;
 

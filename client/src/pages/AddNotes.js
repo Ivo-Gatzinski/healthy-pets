@@ -1,16 +1,24 @@
-import React from 'react';
-import { useEffect, useState } from "react";
-//import { Link } from "react-router-dom";
-//import { useAuth } from "../util/auth";
+import React from "react";
+import { useState } from "react";
+import { useMutation } from "@apollo/client";
+import { ADD_NOTE } from "../util/mutations";
+import { useParams } from "react-router-dom";
 
-const initialFormState = {
-  subject: "",
-  comments: "",
-};
 
 export default function AddNotes() {
-  //const { isLoggedIn, login, loading, error } = useAuth();
+  const { petId } = useParams();
+  const [addNote] = useMutation(ADD_NOTE);
+  
+  const initialFormState = {
+    subject: "",
+    comments: "",
+    petId: petId,
+  };
+  
   const [formState, setFormState] = useState(initialFormState);
+
+  console.log(formState);
+
   const handleInputChange = (evt) => {
     const { name, value } = evt.target;
     setFormState((prevState) => ({ ...prevState, [name]: value }));
@@ -18,18 +26,29 @@ export default function AddNotes() {
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
-  
+    try {
+      const { data } = await addNote({
+
+        variables: { ...formState },
+
+      });
+    } catch (err) {
+      console.error(err);
+    }
+    setFormState({
+      subject: "",
+      comments: "",
+    });
   };
-  console.log(formState);
+  
+
   return (
     <div>
       <div>
         <h2>Pet Name: "Display the selected pet's name"</h2>
         <form onSubmit={handleSubmit}>
           <div>
-            <label>
-            Subject
-            </label>
+            <label>Subject</label>
             <input
               autoFocus
               id="subject"
@@ -41,9 +60,7 @@ export default function AddNotes() {
             />
           </div>
           <div>
-            <label>
-            Comments
-            </label>
+            <label>Comments</label>
             <input
               autoFocus
               id="comments"
@@ -54,19 +71,11 @@ export default function AddNotes() {
               onChange={handleInputChange}
             />
           </div>
+          <div>
+            <button type="submit">Submit</button>
+          </div>
         </form>
-        <div>
-        <div >
-          <button type="submit">
-           Submit
-          </button>
-        </div>
-        </div>
       </div>
     </div>
   );
 }
-
-
-
-

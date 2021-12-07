@@ -63,9 +63,8 @@ type Auth {
   type Mutation {
     addUser(user: userInput): Auth
     login(username: String!, password: String!): Auth
-    addNote(note: noteInput): Pet
-    addPet(firstName: String!, lastName: String!, breed: String!, species: String!): Pet
-    
+    addNote(text: String!, subject: String!): Pet
+    addPet(firstName: String!, lastName: String!, breed: String!, species: String!): Pet 
   }
 `;
 

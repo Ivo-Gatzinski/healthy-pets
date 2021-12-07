@@ -49,7 +49,7 @@ function App() {
             <Route path="/ownersignup">
               <OwnerSignUp />
             </Route>
-            <Route path="/addnote">
+            <Route path="/addnote/:petId">
               <AddNotes />
             </Route>
             <Route path="/addpet">

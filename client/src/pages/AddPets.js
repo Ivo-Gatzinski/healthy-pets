@@ -1,27 +1,26 @@
-import { useAuth } from "../util/auth";
-import { Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import LogoPetsLogout from "../components/LogoPetsLogout";
 import { useMutation } from "@apollo/client";
 import { ADD_PET } from "../util/mutations";
 
 const styles = {
-    formControl: {
-      display: "flex",
-      padding: "0.25em",
-    },
-    label: {
-      flex: "0 1 6em",
-      paddingRight: "0.25em",
-    },
-  };
+  formControl: {
+    display: "flex",
+    padding: "0.25em",
+  },
+  label: {
+    flex: "0 1 6em",
+    paddingRight: "0.25em",
+  },
+};
 
-  const initialFormState = {
-    firstName: "",
-    lastName:"",
-    species:"",
-    breed: "",
-  };
+const initialFormState = {
+  firstName: "",
+  lastName: "",
+  species: "",
+  breed: "",
+};
 
 export default function AddPets() {
   const [addPet] = useMutation(ADD_PET);
@@ -40,24 +39,21 @@ export default function AddPets() {
       const { data } = await addPet({
         variables: { ...formState },
       });
-
-      console.log(data);
-
-      setFormState({
-      firstName: "",
-      lastName:"",
-      species:"",
-      breed: "",
-    });
+      
     } catch (err) {
       console.error(err);
     }
-    return <Redirect to="/mypets"/>;
+    setFormState({
+      firstName: "",
+      lastName: "",
+      species: "",
+      breed: "",
+    });
   };
 
   return (
     <div>
-      <LogoPetsLogout/>
+      <LogoPetsLogout />
       <h1>Add a new pet:</h1>
       <form onSubmit={handleSubmit}>
         <div style={styles.formControl}>
@@ -117,11 +113,12 @@ export default function AddPets() {
           />
         </div>
         <div style={styles.formControl}>
-          <button type="submit">
-            Submit
-          </button>
+          <button type="submit">Submit</button>
         </div>
       </form>
+      <div>
+        <Link to="/mypets">Go back to Owner Home</Link>
+      </div>
     </div>
   );
 }

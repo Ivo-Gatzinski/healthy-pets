@@ -40,6 +40,7 @@ input userInput {
 input noteInput {
  text: String!
  subject: String!
+ petId: ID!
 }
 
 input petInput {
@@ -63,7 +64,7 @@ type Auth {
   type Mutation {
     addUser(user: userInput): Auth
     login(username: String!, password: String!): Auth
-    addNote(text: String!, subject: String!): Pet
+    addNote(note: noteInput!): Pet
     addPet(firstName: String!, lastName: String!, breed: String!, species: String!): Pet 
   }
 `;

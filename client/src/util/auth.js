@@ -86,7 +86,7 @@ const authCtx = createContext({
 export const AuthProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, defaultState, initState);
   const [loginUser, { client }] = useMutation(LOGIN);
-  const [createUser] = useMutation(CREATE_USER);
+  const [addUser] = useMutation(CREATE_USER);
 
   useEffect(() => {
     token.set(state.authToken);
@@ -108,7 +108,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const signup = async ({ password, username }) => {
+  const signup = async ({ username, password, role }) => {
     dispatch({ type: LOADING });
     try {
       // TODO: implement improved validation.
@@ -117,10 +117,10 @@ export const AuthProvider = ({ children }) => {
         throw new Error("Auth error. Invalid parameter received.");
       }
 
-      const { data } = await createUser({
-        variables: { password, username },
+      const { data } = await addUser({
+        variables: { user: {username, password, role }},
       });
-      dispatch({ type: LOGIN_SUCCESS, payload: data.createUser.token });
+      dispatch({ type: LOGIN_SUCCESS, payload: data.addUser.token });
     } catch (error) {
       console.log(error);
       dispatch({ type: ERROR, payload: error.message });

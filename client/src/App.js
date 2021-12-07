@@ -31,7 +31,7 @@ function App() {
             <Route path="/vetpets">
               <VetPets />
             </Route>
-            <Route path="/vetnotes">
+            <Route path="/vetnotes/:petId">
               <VetNotes />
             </Route>
             <Route path="/vetsignup">
@@ -40,7 +40,7 @@ function App() {
             <Route path="/ownerlogin">
               <OwnerLogin />
             </Route>
-            <Route path="/notes">
+            <Route path="/ownernotes/:petId">
               <OwnerNotes />
             </Route>
             <Route path="/mypets">
@@ -49,7 +49,7 @@ function App() {
             <Route path="/ownersignup">
               <OwnerSignUp />
             </Route>
-            <Route path="/addnote">
+            <Route path="/addnote/:petId">
               <AddNotes />
             </Route>
             <Route path="/addpet">

@@ -34,7 +34,7 @@ type User {
 input userInput {
   username: String!
   password: String!
-  role: Role
+  role: Role!
 }
 
 input noteInput {
@@ -57,13 +57,14 @@ type Auth {
 
   type Query {
     me: User
+    pet(petId: ID!): Pet
   }
 
   type Mutation {
     addUser(user: userInput): Auth
     login(username: String!, password: String!): Auth
-    addNote(note: noteInput): Pet
-    addPet(pet: petInput): User
+    addNote(text: String!, subject: String!): Pet
+    addPet(firstName: String!, lastName: String!, breed: String!, species: String!): Pet 
   }
 `;
 

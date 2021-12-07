@@ -2,19 +2,20 @@ import React from "react";
 import { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_NOTE } from "../util/mutations";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
+import { PET } from "../util/queries";
 
+const initialFormState = {
+  subject: "",
+  text: "",
+};
 
 export default function AddNotes() {
+
+const history = useHistory();
   const { petId } = useParams();
   const [addNote] = useMutation(ADD_NOTE);
-  
-  const initialFormState = {
-    subject: "",
-    comments: "",
-    petId: petId,
-  };
-  
+
   const [formState, setFormState] = useState(initialFormState);
 
   console.log(formState);
@@ -27,20 +28,15 @@ export default function AddNotes() {
   const handleSubmit = async (evt) => {
     evt.preventDefault();
     try {
+      const note = { ...formState, petId };
       const { data } = await addNote({
-
-        variables: { ...formState },
-
+        variables: { note },
       });
+      history.push(`/vetnotes/${petId}`);
     } catch (err) {
       console.error(err);
     }
-    setFormState({
-      subject: "",
-      comments: "",
-    });
   };
-  
 
   return (
     <div>
@@ -66,8 +62,8 @@ export default function AddNotes() {
               id="comments"
               type="text"
               placeholder="Enter Comments"
-              name="comments"
-              value={formState.comments}
+              name="text"
+              value={formState.text}
               onChange={handleInputChange}
             />
           </div>

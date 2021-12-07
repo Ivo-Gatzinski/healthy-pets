@@ -1,8 +1,10 @@
+
+
 const {
   AuthenticationError,
   UserInputError,
 } = require("apollo-server-express");
-const { User, Pet} = require("../models");
+const { User, Pet } = require("../models");
 const { signToken } = require("../util/auth");
 const { dateScalar } = require("./customScalars");
 
@@ -69,24 +71,20 @@ const resolvers = {
       }
       throw new AuthenticationError("Please log in.");
     },
-    addNote: async (parent, args, context) => {
-      // console.log(pet._id)
+    addNote: async (parent, { note }, context) => {
       if (context.user?.role === "VET") {
-        // const updatedPet = await Pet.findOneAndUpdate(
-        //   { _id: petId },
-        //   { $push: newNote },
-        //   { new: true, runValidators: true }
-        // );
-        const { text, subject, petId } = args;
-        const noteData = { text, subject, petId };
-        // const note = await Note.create(noteData);
-        console.log(noteData);
-        const updatedPet = await Pet.findOneAndUpdate(
-          { _id: petId },
-          { $addToSet: { notes: noteData } },
-          { new: true, runValidators: true }
-        );
-        return updatedUser;
+        try {
+          const {petId, text, subject} = note;
+          const updatedPet = await Pet.findOneAndUpdate(
+            { _id: petId },
+            { $addToSet: { notes: {text, subject} } },
+            { new: true, runValidators: true }
+          );
+          return updatedPet;
+        } catch (err) {
+          console.log(err);
+          throw new Error("Unexpected error.");
+        }
       }
       throw new AuthenticationError("Please log in.");
     },

@@ -4,21 +4,21 @@ import { useQuery } from "@apollo/client";
 import { PET } from "../util/queries";
 
 export default function VetNotes() {
-  //const { isLoggedIn } = useAuth();
+  
   const { petId } = useParams();
   console.log(petId);
 
-  //const info = useQuery(ME);
+  
 
   const { data } = useQuery(PET, {
-    // Pass the `thoughtId` URL parameter into query to retrieve this thought's data
+    fetchPolicy: "network-only",
     variables: { petId: petId },
   });
   console.log(data);
   const notes = data?.pet.notes || [];
   console.log(notes);
 
-  //const [petName, setPetName] = useState("")
+  
 
   return (
     <div>

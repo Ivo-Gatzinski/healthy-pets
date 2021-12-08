@@ -15,7 +15,7 @@
 
 ## Description
 - As a caring pet owner with a delicate pet, too much paperwork or many emails could be overwhelming for each vet visit, with hard to understand medical terms. 
-- Our app that can easily keep track of all notes from the vet, with brief comments, and easy to understand words. This way you can access all notes for your pet with one easy tap. 
+- Our app can easily keep track of all notes from the vet, with brief comments and easy to understand words. This way you can access all notes for your pet with one easy tap. 
 
 ## Table of Contents 
 

@@ -1,10 +1,8 @@
 # Healthy Pets
 # 🐹 🐶 🐰 🐱 🐭
 ## Description
-- As a caring pet owner with a delicate pet, it could be overwhelmed with too many paperwork or emails form each vet visit, 
-with hard to understand medical terms. 
-- It is nice to have an app that can easily keep track of all the notes from the vet, with brief comments and easy to understand words. 
-So the pet owner has the ability to access all the notes for the pet at one place. 
+- As a caring pet owner with a delicate pet, too much paperwork or many emails could be overwhelming for each vet visit, with hard to understand medical terms. 
+- Our app that can easily keep track of all notes from the vet, with brief comments, and easy to understand words. This way you can access all notes for your pet with one easy tap. 
 
 ## Table of Contents 
 
@@ -27,6 +25,10 @@ Please visit [Healthy Pets on Heroku](https://healthy-pets-copypaste.herokuapp.c
     ```md
     ![alt text](assets/images/screenshot.png)
     ```
+## Technologies
+
+
+
 ## Credits
 *  Thank you, Team Error Crusher:
     * *Elena:*
@@ -49,7 +51,3 @@ Shoutout to the help and support from John and Wells!
 ## License
 
 None. 
-
-## Features
-If your project has a lot of features, list them here.
-

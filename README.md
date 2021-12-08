@@ -1,5 +1,18 @@
 # Healthy Pets
 # 🐹 🐶 🐰 🐱 🐭
+
+## <div><img alt="Hello" src="https://img.shields.io/badge/Team-Error_Crusher-blueviolet?logo=github&style=for-the-badge"></div>
+- *Elena:*
+
+- *Valeria:*
+
+- *Justin:*
+
+- *Ivo:*
+
+    ![GitHub followers](https://img.shields.io/github/followers/Ivo-Gatzinski?style=social)
+
+
 ## Description
 - As a caring pet owner with a delicate pet, too much paperwork or many emails could be overwhelming for each vet visit, with hard to understand medical terms. 
 - Our app that can easily keep track of all notes from the vet, with brief comments, and easy to understand words. This way you can access all notes for your pet with one easy tap. 
@@ -9,8 +22,8 @@
 - [Heroku Link](#heroku-link)
 - [Installation](#installation) 
 - [Usage](#usage)
+- [Technologies](#technologies)
 - [Credits](#credits)
-- [Features](#features)
 
 ## Heroku Link
 https://healthy-pets-copypaste.herokuapp.com
@@ -26,8 +39,7 @@ Please visit [Healthy Pets on Heroku](https://healthy-pets-copypaste.herokuapp.c
     ![alt text](assets/images/screenshot.png)
     ```
 ## Technologies
-
-<div className="frontend">
+<div>
               <ul>
                 <li>
                   <img
@@ -79,19 +91,10 @@ Please visit [Healthy Pets on Heroku](https://healthy-pets-copypaste.herokuapp.c
                   ></img>
                 </li>
               </ul>
-            </div>
+              </div>
+            
 
 ## Credits
-*  Thank you, Team Error Crusher:
-    * *Elena:*
-
-    * *Valeria:*
-
-    * *Justin:*
-
-    * *Ivo:*
-
-        ![GitHub followers](https://img.shields.io/github/followers/Ivo-Gatzinski?style=social)
 
 - *Thank you, John!*
 

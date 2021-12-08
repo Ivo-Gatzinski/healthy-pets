@@ -44,8 +44,7 @@ Please visit [Healthy Pets on Heroku](https://healthy-pets-copypaste.herokuapp.c
                 <li>
                   <img
                     alt="react"
-                    src="https://img.shields.io/badge/-
-                    React.js-navy?style=flat&logo=react"
+                    src="https://img.shields.io/badge/-React.js-navy?style=flat&logo=react"
                   ></img>
                 </li>
                 <li>

@@ -1,21 +1,25 @@
 # Healthy Pets
 # 🐹 🐶 🐰 🐱 🐭
-## Badges
-Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
 ## Description
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
-## Table of Contents (Optional)
-If your README is long, add a table of contents to make it easy for users to find what they need.
-- [Installation](#installation)
+- As a caring pet owner with a delicate pet, it could be overwhelmed with too many paperwork or emails form each vet visit, 
+with hard to understand medical terms. 
+- It is nice to have an app that can easily keep track of all the notes from the vet, with brief comments and easy to understand words. 
+So the pet owner has the ability to access all the notes for the pet at one place. 
+
+## Table of Contents 
+
+- [Heroku Link](#heroku-link)
+- [Installation](#installation) 
 - [Usage](#usage)
 - [Credits](#credits)
-- [License](#license)
+- [Features](#features)
+
+## Heroku Link
+https://healthy-pets-copypaste.herokuapp.com
+
 ## Installation
-This project was built with [median-man/mern-gql-starter](https://github.com/median-man/mern-gql-starter) Please refer to the template [README](template.md).
+This project was built with [median-man/mern-gql-starter](https://github.com/median-man/mern-gql-starter) Please refer to the template [README.md]("./template.md").
+
 ## Usage
 Please visit [Healthy Pets on Heroku](https://healthy-pets-copypaste.herokuapp.com/) for the deployed app.
 
@@ -39,14 +43,13 @@ Please visit [Healthy Pets on Heroku](https://healthy-pets-copypaste.herokuapp.c
 
 - *Thank you, Wells!*
 
+Shoutout to the team members Ivo, Justin and Valeria!
+Shoutout to the help and support from John and Wells!
+
 ## License
-Refer to [https://choosealicense.com/](https://choosealicense.com/).
+
+None. 
 
 ## Features
 If your project has a lot of features, list them here.
 
-## How to Contribute
-If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.
-
-## Tests
-Go the extra mile and write tests for your application. Then provide examples on how to run them here.

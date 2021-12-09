@@ -60,8 +60,6 @@ const resolvers = {
         const { firstName, lastName, species, breed } = pet;
         
         const updatedPet = await Pet.create(pet);
-        
-        console.log(updatedPet);
 
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },

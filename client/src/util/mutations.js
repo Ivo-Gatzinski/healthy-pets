@@ -29,8 +29,8 @@ mutation AddNote($note: noteInput!) {
 `;
 
 export const ADD_PET = gql`
-mutation addPet($firstName: String!, $lastName: String!, $breed: String!, $species: String!) {
-  addPet(firstName: $firstName, lastName: $lastName, breed: $breed, species: $species) {
+mutation addPet($pet: petInput!) {
+  addPet(pet: $pet) {
     _id
     firstName
     lastName
@@ -40,6 +40,7 @@ mutation addPet($firstName: String!, $lastName: String!, $breed: String!, $speci
       _id
       text
       subject
+      createdAt
     }
   }
 }

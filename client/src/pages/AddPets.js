@@ -34,10 +34,12 @@ export default function AddPets() {
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
-    console.log(formState);
+    
+    const pet = {...formState};
+
     try {
       const { data } = await addPet({
-        variables: { ...formState },
+        variables: {pet},
       });
       
     } catch (err) {

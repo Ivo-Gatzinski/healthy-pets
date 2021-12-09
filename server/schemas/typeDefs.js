@@ -65,7 +65,7 @@ type Auth {
     addUser(user: userInput): Auth
     login(username: String!, password: String!): Auth
     addNote(note: noteInput!): Pet
-    addPet(firstName: String!, lastName: String!, breed: String!, species: String!): Pet 
+    addPet(pet: petInput!): Pet
   }
 `;
 

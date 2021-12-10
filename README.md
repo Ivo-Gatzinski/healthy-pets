@@ -25,11 +25,11 @@
 - [Technologies](#technologies)
 - [Credits](#credits)
 
-## Heroku Link
+## Deployment Link
 https://healthy-pets-copypaste.herokuapp.com
 
 ## Installation
-This project was built with [median-man/mern-gql-starter](https://github.com/median-man/mern-gql-starter) Please refer to the template [README.md]("./template.md").
+This project was built with [median-man/mern-gql-starter](https://github.com/median-man/mern-gql-starter) Please refer to the template [README.md](template.md).
 
 ## Usage
 Please visit [Healthy Pets on Heroku](https://healthy-pets-copypaste.herokuapp.com/) for the deployed app.

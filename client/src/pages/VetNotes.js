@@ -6,20 +6,14 @@ import { PET } from "../util/queries";
 export default function VetNotes() {
   
   const { petId } = useParams();
-  console.log(petId);
-
-  
 
   const { data } = useQuery(PET, {
     fetchPolicy: "network-only",
     variables: { petId: petId },
   });
-  console.log(data);
-  const notes = data?.pet.notes || [];
-  console.log(notes);
-
   
-
+  const notes = data?.pet.notes || [];
+  
   return (
     <div>
       <h2>Notes for: </h2>

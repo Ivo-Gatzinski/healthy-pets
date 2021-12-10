@@ -52,22 +52,22 @@ const resolvers = {
       await user.save();
       return { token, user };
     },
-    addPet: async (parent, args, context) => {
+    addPet: async (parent, { pet }, context) => {
       // console.log("In addPet");
       // console.log(args);
       // console.log(context.user);
       if (context.user) {
-        const { firstName, lastName, breed, species } = args;
-        const petData = { firstName, lastName, breed, species };
-        const pet = await Pet.create(petData);
-        // console.log(pet);
+        const { firstName, lastName, species, breed } = pet;
+        
+        const updatedPet = await Pet.create(pet);
+
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { pets: pet._id } },
+          { $push: { pets: updatedPet._id } },
           { new: true, runValidators: true }
         );
-        // console.log(updatedUser);
-        return updatedUser;
+
+        return updatedPet;
       }
       throw new AuthenticationError("Please log in.");
     },

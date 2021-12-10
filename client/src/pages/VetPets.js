@@ -9,19 +9,10 @@ import { ME } from "../util/queries";
 
 export default function VetPets() {
 
-const  {loading, data} = useQuery(ME);
-
+const  {data} = useQuery(ME);
 
   const pets  = data?.me.pets || [];
  
-
-
-
-  // const pets = [
-  //   { name: "Luna", _id: "abc" },
-  //   { name: "Doggerston", _id: "zzz" },
-  //   { name: "Snoopy", _id: "mmm" },
-  // ];
   const [petName, setPetName] = useState("");
 
   return (

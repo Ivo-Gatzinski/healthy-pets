@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_NOTE } from "../util/mutations";
 import { useParams, useHistory } from "react-router-dom";
-import { PET } from "../util/queries";
 
 const initialFormState = {
   subject: "",

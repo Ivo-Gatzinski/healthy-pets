@@ -6,7 +6,7 @@ import { ME } from "../util/queries";
 
 export default function OwnerHome() {
   const { user } = useAuth();
-  const { loading, data } = useQuery(ME);
+  const { loading, data } = useQuery(ME, { fetchPolicy: "network-only" });
 
   // checking if the data is null or return a emptry array
   let pets = data?.me.pets || [];

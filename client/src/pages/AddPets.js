@@ -3,6 +3,7 @@ import { useState } from "react";
 import LogoPetsLogout from "../components/LogoPetsLogout";
 import { useMutation } from "@apollo/client";
 import { ADD_PET } from "../util/mutations";
+import { useParams, useHistory } from "react-router-dom";
 
 const styles = {
   formControl: {
@@ -24,7 +25,7 @@ const initialFormState = {
 
 export default function AddPets() {
   const [addPet] = useMutation(ADD_PET);
-
+  const history = useHistory();
   const [formState, setFormState] = useState(initialFormState);
 
   const handleInputChange = (evt) => {
@@ -41,6 +42,8 @@ export default function AddPets() {
       const { data } = await addPet({
         variables: {pet},
       });
+
+      history.push(`/mypets/`);
       
     } catch (err) {
       console.error(err);

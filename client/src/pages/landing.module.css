@@ -9,3 +9,40 @@ h1 {
     display: block;
     flex-wrap: nowrap;
 }
+
+.logo {
+    width: 20%;
+}
+
+.header {
+    font-size: 2.5vmin;
+    margin-top: -10%;
+    margin-left: 5%;
+}
+
+.choose {
+    font-size: 2.5vmin;
+    margin-left: 5%;
+    
+}
+
+.link {
+    text-decoration: none;
+    background-color: #5f8679;
+    color: #FBF7F4;
+    border-radius: 55%;
+    border: 1px solid #5f8679;
+    padding: 2%;
+}
+
+.link:hover {
+    background-color: #E8998D;
+    border: 1px solid #E8998D;
+}
+
+.choose:hover::before 
+{
+    content: "Please, sign in!";
+    color: #A1683A;
+
+}

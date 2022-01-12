@@ -11,12 +11,13 @@ export default function Landing() {
       
       <img src={banner} alt="pets" className={styles.banner}></img>
       <div className={styles.header}>
+      <img src={logo} alt="paw logo" className={styles.logo}></img>
       <h1 className={styles.h1}>Welcome to Healthy Pets!</h1>
       </div>
+      
       <div className={styles.choose}><h2>
       <Link to="/vetlogin" className={styles.link}>Vet</Link>
-      
-      <img src={logo} alt="paw logo" className={styles.logo}></img>
+     
       <Link to="/ownerlogin" className={styles.link}>Pet</Link>
       </h2>
     </div>

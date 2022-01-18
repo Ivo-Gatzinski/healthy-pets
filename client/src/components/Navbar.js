@@ -2,13 +2,16 @@ import { NavLink } from "react-router-dom";
 import { useAuth } from "../util/auth";
 import React from 'react';  
 import "./Navbar.css";
+import logo from "../pages/paw_logo_tang.png";
 
 export default function Navbar() {
   const { isLoggedIn, logout } = useAuth();
   return (
     <nav className="navbar">
       <NavLink exact to="/" className="navbar-link">
-        Home
+      <div> 
+      <img src={logo} alt="paw logo"></img>
+      </div>
       </NavLink>
       {isLoggedIn ? (
         <>

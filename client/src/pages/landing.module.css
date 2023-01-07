@@ -2,7 +2,7 @@ h1 {
     color: #5f8679;
 }
 .banner {
-    width: 100%;
+    width: 95%;
 }
 
 .landing {
@@ -19,7 +19,7 @@ h1 {
 .header {
     display: flex;
     justify-content: left;
-    font-size: 2.5vmin;
+    font-size: 2.2vmin;
     margin-top: -10%;
 }
 

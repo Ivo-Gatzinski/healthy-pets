@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 import { useAuth } from "../util/auth";
 import "./Navbar.css";
 import logo from "../pages/paw_logo_tang.png";
